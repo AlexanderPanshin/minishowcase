@@ -19,9 +19,13 @@ body {
 /**** main container definitions ****/
 
 #msc_container {
-	position: relative;
+	/*position: relative;
 	width: <?php echo ($settings['gallery_width']-20)?>px;
 	margin: auto;
+	Закоменнтировал эти строки так как больше нет ширины использован flex
+	*/
+	display: flex;
+    flex-wrap: wrap;
 	color: <?php echo $theme_general_text?>;
 	text-align: left;
 	vertical-align: top;
@@ -166,15 +170,15 @@ body {
 #msc_menu ul li em {
 	font-style: normal;
 	font-weight: normal;
-	font-size: 9px !important;
-	font-size: 10px;
+	/*font-size: 9px !important;*/
+	font-size: 16px;
 }
 
 #msc_menu ul li a,
 #msc_menu ul li a:link,
 #msc_menu ul li a:active,
 #msc_menu ul li a:visited {
-	font-size: 12px;
+	font-size: 18px;
 	/*padding-left: 4px;*/
 	border-left: 1px solid <?php echo $theme_menu_bg?>;
 }
@@ -220,7 +224,7 @@ body {
 	float: left;
 	padding-left: 10px;
 	color: <?php echo $theme_menu_hover?>;
-	font-size: 11px;
+	font-size: 18px;
 }
 
 #toolmenu a#toolshowhide:hover {
@@ -230,7 +234,7 @@ body {
 #toolmenu h1 {
 	margin: 0px;
 	padding: 0px 10px 2px 10px;
-	font-size: 12px;
+	font-size: 18px;
 	line-height: 14px;
 	color: <?php echo $theme_menu_text?>;
 }
@@ -253,7 +257,7 @@ body {
 	width: <?php echo ($menu_width-12)?>px !important;
 	padding: 6px;
 	color: <?php echo $theme_menu_text?>;
-	font-size: 11px;
+	font-size: 18px;
 	background: <?php echo $theme_general_dimmed?>;
 }
 
@@ -262,7 +266,7 @@ body {
 	height: auto !important;
 	color: <?php echo $theme_menu_link?>;
 	font-family: <?php echo $theme_fonts_text?>;
-	font-size: 10px;
+	font-size: 16px;
 	line-height: 18px;
 	background: <?php echo $theme_general_dimmed?>;
 	border-bottom: 1px solid <?php echo $theme_menu_bg?>;
@@ -273,7 +277,7 @@ body {
 #utilities ul li a:active,
 #utilities ul li a:visited {
 	padding-left: 0px;
-	font-size: 11px;
+	font-size: 18px;
 	line-height: 14px;
 	color: <?php echo $theme_menu_text?>;
 	font-weight: bold;
@@ -292,7 +296,7 @@ body {
 }
 
 #utilities ul li select {
-	font-size: 10px;
+	font-size: 16px;
 	line-height: 10px;
 	z-index: -20;
 }
@@ -300,8 +304,13 @@ body {
 /**** thumbs container definitions ****/
 
 #msc_thumbs {
+	/*
 	margin: 0px 0px 10px <?php echo ($menu_width)?>px;
 	width: <?php echo $content_width-10?>px;
+	Закоментирован код так как больше не нужно указывать ширину теперь flex
+	*/
+    flex-direction: column;
+    flex: 1;
 	padding: 0px 0px 6px 0px;
 	background: <?php echo $theme_general_bg?>;
 }
@@ -329,7 +338,7 @@ body {
 	padding: 0px 10px;
 	
 	font-family: <?php echo $theme_fonts_text?>;
-	font-size: 10px;
+	font-size: 16px;
 	line-height: 10px;
 }
 
@@ -347,7 +356,7 @@ body {
 #tools_menu span,
 #tools_menu span a {
 	color: <?php echo $theme_general_text_light?>;
-	font-size: 10px;
+	font-size: 16px;
 	line-height: 10px;
 }
 
@@ -394,7 +403,10 @@ body {
 
 #gallery_description {
 	display: none;
+	/*
 	width: <?php echo ($content_width-20)?>px;
+	ширина закоментированна так как flex
+	*/
 	margin: 10px 0px 2px 0px;
 	padding: 0px;
 	padding-left: 10px;
@@ -405,7 +417,7 @@ body {
 	margin: 0px;
 	padding: 0px 0px 10px 0px;
 	color: <?php echo $theme_general_text?>;
-	font-size: 12px;
+	font-size: 16px;
 	font-weight: normal;
 	line-height: 16px;
 	font-family: Verdana, Tahoma, Geneva, Arial;
@@ -430,7 +442,7 @@ body {
 	margin: 0px;
 	padding: 0px;
 	color: <?php echo $theme_general_text?>;
-	font-size: 18px;
+	font-size: 24px;
 	line-height: 24px;
 	font-family: <?php echo $theme_fonts_titles?>;
 	font-weight: normal;
@@ -442,7 +454,7 @@ body {
 
 #gallery_title span.xtra a {
 	color: <?php echo $theme_general_text_light?>;
-	font-size: 12px;
+	font-size: 18px;
 	line-height: 26px;
 	vertical-align: middle;
 }
@@ -495,7 +507,10 @@ body {
 /**** thumbnails styles ****/
 	
 #thumbs_div {
+	/*
 	width: <?php echo ($content_width-10)?>px;
+	Закоментированна ширина так как родитель flex
+	*/
 	margin: 0px !important;
 	padding: 0px !important;
 	color: <?php echo $theme_menu_text?>;
@@ -533,7 +548,10 @@ body {
 /* thumbs container */
 	
 #thumbs_cont , #thumbs_cont_video {
+	/*
 	width: <?php echo ($content_width-10)?>px;
+	Закоментированна ширина так как родитель flex
+	*/
 	margin: 4px 0px 0px 0px;
 	padding: 0px;
 	color: <?php echo $theme_general_text?>;
@@ -568,9 +586,14 @@ body {
 }*/
 
 #thumbs_cont ul , #thumbs_cont_video ul {
+    display: flex;
+    flex-wrap: wrap;	
 	visibility: visible;
 	list-style: none;
+	/*
 	width: <?php echo ($content_width-20)?>px !important;
+	Закоменнтирована ширина так как это flex контейнер
+	*/
 	margin: 6px 0px 0px 10px !important;
 	padding: 0px !important;
 }
