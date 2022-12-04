@@ -1,3 +1,4 @@
+<?php
 /**** language strings ****/
 
 /* galleries */
@@ -58,3 +59,4 @@ $lang["slideshow_button"] = "начать слайд-шоу";
 
 /* permalink */
 $lang["permalink"] = " постоянная ссылка";
+?>
