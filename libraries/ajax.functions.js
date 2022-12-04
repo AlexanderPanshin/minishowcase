@@ -38,7 +38,7 @@
 		setMaxSizes();
 		setGalleries();
 		display('gallery_description','block');
-		innerhtml('gallery_title',lang['menu_guide']);
+		innerhtml('gallery_title',decode_utf8(lang['menu_guide'])); //добавлен декодер УТФ 
 		
 		if (use_select_menu) display('msc_menu','none');
 		
@@ -389,7 +389,7 @@ function generateDefaultGalleryMenu(galleries, expanded){
 			menu += lang['menu_title']+': ';
 			menu += '<span id="gallery_select_menu">';
 			menu += '<select id="select_menu" onchange="setGallery(this.value,false)">';
-			menu += '<option value="null">'+lang['menu_guide']+'</option>';
+			menu += '<option value="null">'+lang['menu_guide']+'</option>'; 
 			for (var i=0; i<galleries.length-1; i++)
 			{
 				var galleries_data = galleries[i].split(":");
@@ -633,14 +633,14 @@ function generateDefaultGalleryMenu(galleries, expanded){
 			// reload gallery
 			+' <a href="javascript:;" onclick="active_id=false;reloading=true;setGallery('
 			+"'"+active_id.sq()+"', false"
-			+')">('+lang['gallery_reload']+')</a>'
+			+')">('+(decode_utf8(lang['gallery_reload']))+')</a>' //тут добавлен декодер в УТФ
 
 			+'</span>';
 
 		// slideshow
 		var slideshow_link = ' <a href ="javascript:;"'
 			+ ' onclick="startSlideshow();">'
-			+ '('+lang['slideshow_name']+')</a>'
+			+ '('+decode_utf8(lang['slideshow_name'])+')</a>' //тут добавлен кодировщзик УТФ
 
 		display('tools_menu', 'block');
 		innerhtml('tools_slideshow',slideshow_link);
@@ -1179,7 +1179,7 @@ function generateDefaultGalleryMenu(galleries, expanded){
 		
 		var imgload = '';
 		var name = img.split("/").pop();
-		imgload += '<div id="loaddiv"><img id="loadimg" src="'+indicator_src+'" /> '+lang['loading_title']+' <strong>'+name+'</strong></div>';
+		imgload += '<div id="loaddiv"><img id="loadimg" src="'+indicator_src+'" /> '+decode_utf8(lang['loading_title'])+' <strong>'+name+'</strong></div>'; //Добавле декодер УТФ
 		
 		innerhtml('img',imgload);
 		display('img','block');
@@ -1193,7 +1193,7 @@ function generateDefaultGalleryMenu(galleries, expanded){
 		
 		//// image title scripts
 		var load_cont = '<small>'+lang['loading_title']+' '
-			+lang['loading_image']+': <strong>'
+			+decode_utf8(lang['loading_image'])+': <strong>' //добавлен декодер УТФ
 			+imageName(name)
 			+'</strong>...</small>';
 		
@@ -1249,8 +1249,8 @@ function generateDefaultGalleryMenu(galleries, expanded){
 		
 		var iname = '<strong>'+name
 			+'</strong> <small>'+w+'x'+h+'px ('
-			+lang['loading_image']+' '
-			+num+' '+lang['loading_of']+' '
+			+decode_utf8(lang['loading_image'])+' '  //Добавлен декодер УТФ
+			+num+' '+decode_utf8(lang['loading_of'])+' '  //добален декодер УТФ
 			+images_total+')</small>';
 			
 		var imgout = '';
@@ -1347,7 +1347,7 @@ function generateDefaultGalleryMenu(galleries, expanded){
 			imgout += '</a>';
 			
 			//// enlarge message at bottom
-			imgout += '<p><a href="'+escapedImg+'" target="_blank"><small>'+lang['alert_enlarge']+'</small></a></p>';
+			imgout += '<p><a href="'+escapedImg+'" target="_blank"><small>'+decode_utf8(lang['alert_enlarge'])+'</small></a></p>';//Добавлен декодер УТФ
 			
 		} else {
 			imgout = '<img id="mainimg" class="imagen" src="'+escapedImg+'"  width="'+fw+'" height="'+fh+'" title="'+name+'" alt="'+name+'" />';
@@ -1800,7 +1800,7 @@ function generateDefaultGalleryMenu(galleries, expanded){
 		clearTimeout(timeout);
 		
 		tStart = new Date();
-		innerhtml('time',zero(slideshow_time)+' '+lang['slideshow_seconds']);
+		innerhtml('time',zero(slideshow_time)+' '+decode_utf8(lang['slideshow_seconds']));//Добавлен декодер УТФ
 		
 		updateTimer();
 		
@@ -1822,7 +1822,7 @@ function generateDefaultGalleryMenu(galleries, expanded){
 	
 		tDate.setTime(tDiff);
 	
-		innerhtml('time',zero(slideshow_time-tDate.getSeconds())+' '+lang['slideshow_seconds']);
+		innerhtml('time',zero(slideshow_time-tDate.getSeconds())+' '+decode_utf8(lang['slideshow_seconds']));//Добавлен декодер УТФ
 	   
 		timerID = setTimeout("updateTimer()", 1000);
 	}
@@ -1836,7 +1836,7 @@ function generateDefaultGalleryMenu(galleries, expanded){
 			clearTimeout(timerID);
 			clearTimeout(timeout);
 			timeout = null;
-			innerhtml('toggle_show',lang['slideshow_pause']+' '+lang['slideshow_name']);
+			innerhtml('toggle_show',decode_utf8(lang['slideshow_pause'])+' '+decode_utf8(lang['slideshow_name'])); //Добавле декодер УТФ
 			firstImageSlideshow();
 			slideshow_flag = true;
 			
@@ -1844,7 +1844,7 @@ function generateDefaultGalleryMenu(galleries, expanded){
 			if (timerID) clearTimeout(timerID);
 			if (timeout) clearTimeout(timeout);
 			timeout = null;
-			innerhtml('toggle_show',lang['slideshow_resume']+' '+lang['slideshow_name']);
+			innerhtml('toggle_show',decode_utf8(lang['slideshow_resume'])+' '+decode_utf8(lang['slideshow_name'])); //Добавлен декодер УТФ
 			slideshow_flag = false;
 		}
 		display('msc_image','block');
