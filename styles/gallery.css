@@ -427,7 +427,7 @@ body {
 
 #gallery_description a {
 	color: <?php echo $theme_menu_active?>;
-	font-size: 12px;
+	font-size: 18px;
 	line-height: 16px;
 	font-family: <?php echo $theme_fonts_text?>;
 	text-decoration: underline;
@@ -599,6 +599,8 @@ body {
 }
 
 #thumbs_cont ul li , #thumbs_cont_video ul li {
+	display: flex;
+	justify-content: center;
 	visibility: visible;
 	float: left;
 	width: <?php echo ($thumbnail_max_size+6)?>px;
